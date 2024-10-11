@@ -18,7 +18,7 @@ public class GPSPoint {
 		
 	}
 
-	// TODO - get/set metoder
+	
 	public int getTime() {
 		
 		return time;
@@ -69,11 +69,10 @@ public class GPSPoint {
 	
 	public String toString() {
 		
-		String str;
+		String str = "";
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO
+		str += time + " (" + latitude + ',' + longitude + ") " + elevation + "\n"; 
 		
+		return str;
 	}
 }
