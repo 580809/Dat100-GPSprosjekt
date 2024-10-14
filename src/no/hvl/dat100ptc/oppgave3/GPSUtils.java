@@ -26,25 +26,38 @@ public class GPSUtils {
 
 		double min;
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		min = da[0];
+		
+		for (double d : da) {
+			if (d < min) {
+				min = d;
+			}
+		}
+		
+		return min;
 		
 	}
 
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {
-
-		throw new UnsupportedOperationException(TODO.method());
 		
-		// TODO
+		double[] latitudes = new double[gpspoints.length];
+		
+		for (int i = 0; i < latitudes.length; i++) {
+			
+			latitudes[i] = gpspoints[i].getLatitude();
+		}
+		return latitudes;
 	}
 
 	public static double[] getLongitudes(GPSPoint[] gpspoints) {
 
+		double[] longitudes = new double[gpspoints.length];
 		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO 
-
+		for (int i = 0; i < longitudes.length; i++) {
+			
+			longitudes[i] = gpspoints[i].getLongitude();
+		}
+		return longitudes;
 	}
 
 	private static final int R = 6371000; // jordens radius
