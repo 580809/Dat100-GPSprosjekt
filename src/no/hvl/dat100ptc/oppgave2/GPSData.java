@@ -10,9 +10,9 @@ public class GPSData {
 
 	public GPSData(int antall) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		gpspoints = new GPSPoint[antall];
+		antall = 0;
 		
-		// TODO
 	}
 
 	public GPSPoint[] getGPSPoints() {
@@ -23,26 +23,33 @@ public class GPSData {
 
 		boolean inserted = false;
 		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO 
-	
+		if (antall < gpspoints.length) {
+			gpspoints[antall] = gpspoint;
+			antall++;
+			inserted = true;
+		}
+			
+		return inserted;
 	}
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
 
 		GPSPoint gpspoint;
 
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO 
+		gpspoint = GPSDataConverter.convert(time, latitude, longitude, elevation);
+		
+		return insertGPS(gpspoint);	
 		
 	}
 
 	public void print() {
 
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO 
-	}
+		String out = "====== GPS Data - START ======" + '\n';
+		
+		for (int i = 0; i < gpspoints.length; i++) {
+			out += gpspoints[i].toString();
+		}
+		out += "====== GPS Data - SLUTT ======";
+		System.out.print(out);
+	}	
 }
