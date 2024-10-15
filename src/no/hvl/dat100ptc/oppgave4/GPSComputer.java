@@ -30,28 +30,54 @@ public class GPSComputer {
 	public double totalDistance() {
 
 		double distance = 0;
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO
-
+		
+		for (int i = 0; i < (gpspoints.length - 1); i++) {
+			
+			distance += GPSUtils.distance(gpspoints[i], gpspoints[i+1]);
+			
+		}
+		
+		return distance;
 	}
 
 	public double totalElevation() {
 
 		double elevation = 0;
-
-		throw new UnsupportedOperationException(TODO.method());
+		double tempElevation = gpspoints[0].getElevation();
 		
-		// TODO 
+		for (int i = 0; i < (gpspoints.length); i++) {
+			
+			if (tempElevation < gpspoints[i].getElevation()) {
+				
+				elevation += (gpspoints[i].getElevation() - tempElevation);
+			}
+			
+			tempElevation = gpspoints[i].getElevation();
+		}
+		
+		return elevation;
 		
 	}
 
 	public int totalTime() {
-
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
 		
+		int time = 0;
+		int tempTime = gpspoints[0].getTime();
+		
+		for (int i = 0; i < gpspoints.length; i++) {
+			
+			if (tempTime < gpspoints[i].getTime()) {
+				
+				time += (gpspoints[i].getTime() - tempTime);
+				
+			}
+			
+			tempTime = gpspoints[i].getTime();
+			
+		}
+		
+		return time;
+			
 	}
 		
 
@@ -59,25 +85,36 @@ public class GPSComputer {
 
 		double[] speeds = new double[gpspoints.length-1];
 		
-		// TODO
-		throw new UnsupportedOperationException(TODO.method());
+		for (int i = 0; i < (gpspoints.length - 1); i++) {
+			
+			speeds[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
+			
+		}
+		
+		return speeds;
 		
 	}
 	
 	public double maxSpeed() {
 		
 		double maxspeed = 0;
+		double[] speeds = new double[gpspoints.length-1];
 		
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
-	
+		for (int i = 0; i < (gpspoints.length - 1); i++) {
+			
+			speeds[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);
+		}
+		
+		maxspeed = GPSUtils.findMax(speeds);
+		
+		return maxspeed;
 	}
 
 	public double averageSpeed() {
 
 		double average = 0;
-		
-		// TODO
+
+		// TODO 
 		throw new UnsupportedOperationException(TODO.method());
 		
 	}
