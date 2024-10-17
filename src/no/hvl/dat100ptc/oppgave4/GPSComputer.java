@@ -137,30 +137,29 @@ public class GPSComputer {
 
 	public double kcal(double weight, int secs, double speed) {
 
-		double kcal;
+	    double kcal;
+	    double met = 0;		
+	    double speedmph = speed * MS;
 
-		double met = 0;		
-		double speedmph = speed * MS;
-
-		if (speedmph < 10.0) {
-			met = 4.0;
-		} else if (speedmph >= 10.0 && speedmph < 12.0) {
-			met = 6.0;
-		} else if (speedmph >= 12.0 && speedmph < 14.0) {
-			met = 8.0;
-		} else if (speedmph >= 14.0 && speedmph < 16.0) {
-			met = 10.0;
-		} else if (speedmph >= 16.0 && speedmph < 20.0) {
-			met = 12.0;
-		} else if (speedmph >= 20.0) {
-			met = 16.0;
-		}
-		
-		kcal = (met * weight * (secs/3600));
-		
-		return kcal;
-		
+	    if (speedmph < 10.0) {
+	        met = 4.0;
+	    } else if (speedmph < 12.0) {
+	        met = 6.0;
+	    } else if (speedmph < 14.0) {
+	        met = 8.0;
+	    } else if (speedmph < 16.0) {
+	        met = 10.0;
+	    } else if (speedmph < 20.0) {
+	        met = 12.0;
+	    } else {
+	        met = 16.0;
+	    }
+	    
+	    kcal = (met * weight * (secs/3600.0)); // Endret 3600 til 3600.0 for å sikre flyttallsdivisjon
+	    
+	    return kcal;
 	}
+	
 
 	public double totalKcal(double weight) {
 
