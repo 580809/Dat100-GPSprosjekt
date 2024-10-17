@@ -185,8 +185,7 @@ public class GPSComputer {
 	
 	public void displayStatistics() {
 
-		// TODO 
-		throw new UnsupportedOperationException(TODO.method());
+		
 		
 	}
 
