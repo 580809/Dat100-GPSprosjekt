@@ -184,9 +184,40 @@ public class GPSComputer {
 	private static double WEIGHT = 80.0;
 	
 	public void displayStatistics() {
+		 {
 
+		    System.out.println("==============================================");
+		    System.out.println("GPS data analysis:");
+		    System.out.println("==============================================");
+
+		    // Display total distance
+		    double totalDistance = totalDistance();
+		    System.out.printf("Total distance: %.2f km\n", totalDistance / 1000);
+
+		    // Display total elevation
+		    double totalElevation = totalElevation();
+		    System.out.printf("Total elevation: %.2f m\n", totalElevation);
+
+		    // Display total time
+		    int totalTime = totalTime();
+		    System.out.printf("Total time: %d seconds\n", totalTime);
+
+		    // Display average speed
+		    double averageSpeed = averageSpeed();
+		    System.out.printf("Average speed: %.2f km/t\n", averageSpeed * 3.6); 
+
+		    // Display max speed
+		    double maxSpeed = maxSpeed();
+		    System.out.printf("Max speed: %.2f km/t\n", maxSpeed * 3.6);
+
+		    // Display energy consumption
+		    double totalKcal = totalKcal(WEIGHT);
+		    System.out.printf("Energy consumption: %.2f kcal\n", totalKcal); 
+
+		    System.out.println("==============================================");
 		
 		
-	}
+		
+	}}}
 
-}
+
