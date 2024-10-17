@@ -155,7 +155,7 @@ public class GPSComputer {
 	        met = 16.0;
 	    }
 	    
-	    kcal = (met * weight * (secs/3600.0)); // Endret 3600 til 3600.0 for å sikre flyttallsdivisjon
+	    kcal = (met * weight * (secs/3600.0));
 	    
 	    return kcal;
 	}
